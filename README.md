@@ -8,4 +8,3 @@ section : K23O002
 <br>
 roll no : 53
 <br>
-group no : 2

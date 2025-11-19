@@ -1,0 +1,140 @@
+package com.example.hotelbooking
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.hotelbooking.ui.theme.HotelBookingTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        setContent {
+            HotelBookingTheme {
+                Boking()
+            }
+        }
+    }
+}
+
+@Composable
+fun Boking() {
+
+    var checkDate by remember { mutableStateOf("") }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Magenta)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(
+            text = "Kinkar",
+            fontSize = 30.sp,
+            color = Color.White,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.Black)
+                .padding(10.dp)
+        )
+
+        Text(
+            text = "Hostel Name",
+            fontSize = 25.sp,
+            color = Color.Black
+        )
+
+        Text(
+            text = "LPU Mess",
+            fontSize = 18.sp
+        )
+
+
+        Text(
+            text = "Student Name",
+            fontSize = 25.sp,
+            color = Color.Black
+        )
+
+        Text(
+            text = "kinkar dinda",
+            fontSize = 18.sp
+        )
+
+
+        Text(
+            text = "Registration No",
+            fontSize = 25.sp,
+            color = Color.Black
+        )
+
+        Text(
+            text = "12307550",
+            fontSize = 18.sp
+        )
+
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text("Check In", fontSize = 20.sp, color = Color.Black)
+
+                TextField(
+                    value = checkDate,
+                    onValueChange = { checkDate = it },
+                )
+            }
+
+            Image(
+                painter = painterResource(id = R.drawable.outline_account_circle_24),
+                contentDescription = "Check",
+                modifier = Modifier
+                    .padding(start = 10.dp)
+                    .size(60.dp)
+            )
+        }
+
+
+        Button(
+            onClick = {},
+            modifier = Modifier.fillMaxWidth()
+                .padding(top = 10.dp)
+        ) {
+            Text(
+                text = "Book Now",
+                fontSize = 20.sp,
+                color = Color.White)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewBooking() {
+    HotelBookingTheme {
+        Boking()
+    }
+}

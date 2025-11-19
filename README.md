@@ -1,4 +1,4 @@
-# Hotel-booking-app
+# Hotel-booking-app (Using Compose)
 
 Course code : CSE224
 <br>
